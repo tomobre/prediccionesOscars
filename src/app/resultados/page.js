@@ -1,7 +1,5 @@
 import db from "../config/db";
 
-export async function GET() {}
-
 async function getData() {
   const results = await new Promise((resolve, reject) => {
     db.query(`SELECT * from OscarPredicciones;`, (err, results) => {
