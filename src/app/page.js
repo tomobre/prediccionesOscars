@@ -43,23 +43,27 @@ export default function Home() {
         body: JSON.stringify({ guesses, username }),
       });
 
-      emailjs
-        .sendForm(
-          process.env.NEXT_PUBLIC_SERVICE_ID,
-          process.env.NEXT_PUBLIC_TEMPLATE_ID,
-          form.current,
-          process.env.NEXT_PUBLIC_PUBLIC_KEY
-        )
-        .then(
-          () => {
-            // setSuccess(true);
-            // form.current.reset();
-          },
-          () => {
-            // setError(true);
-          }
-        );
-      window.alert("listo!");
+      if (response.ok) {
+        emailjs
+          .sendForm(
+            process.env.NEXT_PUBLIC_SERVICE_ID,
+            process.env.NEXT_PUBLIC_TEMPLATE_ID,
+            form.current,
+            process.env.NEXT_PUBLIC_PUBLIC_KEY
+          )
+          .then(
+            () => {
+              // setSuccess(true);
+              // form.current.reset();
+            },
+            () => {
+              // setError(true);
+            }
+          );
+        window.alert("listo!");
+      } else {
+        window.alert("salio algo mal!");
+      }
     } catch (err) {
       console.log(err);
     }
