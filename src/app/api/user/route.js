@@ -40,5 +40,5 @@ export async function POST(request) {
       }
     );
   });
-  return Response.json(results);
+  return Response.json({ results, err });
 }
