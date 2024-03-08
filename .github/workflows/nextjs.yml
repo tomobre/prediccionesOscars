@@ -17,7 +17,7 @@ env:
   NEXT_PUBLIC_TEMPLATE_ID: template_71ynrxr
   NEXT_PUBLIC_PUBLIC_KEY: 9GfjGWY52HYEqx6pL
   URL:http://localhost: 3000
-  DB_HOST: sql11.freesqldatabase.com"
+  DB_HOST: sql11.freesqldatabase.com
   DB_USER: sql11689448
   DB_PASSWORD: M1y4js9j4e
   DB_DB: sql11689448
