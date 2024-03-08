@@ -340,6 +340,13 @@ export default function Home() {
 
   return (
     <main className="">
+      <button
+        onClick={() => {
+          console.log("clickeaste puto");
+        }}
+      >
+        test buton
+      </button>
       <form onSubmit={async (e) => onSend(e)} ref={form}>
         <div style={{ marginLeft: "3rem", marginTop: "1rem" }} className="m-3">
           <span>nombre:</span>
