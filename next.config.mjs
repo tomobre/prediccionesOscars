@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
-//import TerserPlugin from "terser-webpack-plugin";
 const nextConfig = {
   output: "export",
 };
-
+/* module.exports = nextConfig*/
 export default nextConfig;
