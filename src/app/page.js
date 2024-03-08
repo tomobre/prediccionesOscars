@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef } from "react";
+import db from "./config/db";
 import emailjs from "@emailjs/browser";
 
 export default function Home() {
@@ -35,14 +36,47 @@ export default function Home() {
     e.preventDefault();
     let response;
     try {
-      response = await fetch("/prediccionesOscars/api/user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ guesses, username }),
+      const {
+        pelicula,
+        direccion,
+        guionAdap,
+        guionOri,
+        montaje,
+        sonido,
+        internacional,
+        actor,
+        actriz,
+        actorRep,
+        actrizRep,
+        foto,
+        vestuario,
+        efectos,
+        disProd,
+        animacion,
+        docu,
+        cortoAnim,
+        cortoDoc,
+        corto,
+        bandaSonora,
+        cancion,
+        maqYPel,
+      } = guesses;
+
+      const results = await new Promise((resolve, reject) => {
+        db.query(
+          `INSERT INTO OscarPredicciones (NombreParticipante,pelicula,direccion,guionAdap, guionOri, montaje,sonido, internacional, actor,actriz,actorRep,actrizRep,foto,vestuario,efectos,disProd,animacion,docu,cortoAnim,cortoDoc,corto,bandaSonora,cancion,maqYPel) VALUES ('${username}','${pelicula}','${direccion}','${guionAdap}', '${guionOri}', '${montaje}','${sonido}','${internacional}', '${actor}','${actriz}','${actorRep}','${actrizRep}','${foto}','${vestuario}','${efectos}','${disProd}','${animacion}','${docu}','${cortoAnim}','${cortoDoc}','${corto}','${bandaSonora}','${cancion}','${maqYPel}');`,
+          (err, results) => {
+            if (err) {
+              reject(err);
+            } else {
+              resolve(results);
+            }
+          }
+        );
       });
 
+      response = await results.json();
+      console.log(response);
       if (response.ok) {
         emailjs
           .sendForm(
@@ -53,6 +87,7 @@ export default function Home() {
           )
           .then(
             () => {
+              console.log("sent email");
               // setSuccess(true);
               // form.current.reset();
             },
@@ -61,15 +96,13 @@ export default function Home() {
             }
           );
         window.alert("listo!");
+        console.log("send");
       } else {
         window.alert("salio algo mal!");
       }
     } catch (err) {
       console.log(err);
     }
-
-    console.log(await response.json());
-    console.log("send");
   };
 
   const onChangeCheckBox = (target) => {
