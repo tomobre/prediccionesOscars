@@ -35,7 +35,7 @@ export default function Home() {
     e.preventDefault();
     let response;
     try {
-      response = await fetch("/prediccionesOscars/api/user", {
+      response = await fetch("/api/user", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
