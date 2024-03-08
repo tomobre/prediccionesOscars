@@ -341,7 +341,7 @@ export default function Home() {
   return (
     <main className="">
       <form onSubmit={async (e) => onSend(e)} ref={form}>
-        <div className="m-3">
+        <div style={{ marginLeft: "3rem", marginTop: "1rem" }} className="m-3">
           <span>nombre:</span>
           <input
             onChange={(e) => setUsername(e.target.value)}
@@ -350,17 +350,22 @@ export default function Home() {
             type="text"
           />
         </div>
-        <div className="m-3">
+        <div style={{ marginLeft: "3rem", marginTop: "1rem" }} className="m-3">
           <span>email:</span>
           <input className="border border-black" name="email" type="text" />
         </div>
         {categories.map((category, index) => {
           return (
-            <div key={index} className="m-3">
-              <label className="font-bold">{category.label}</label>
+            <div key={index} style={{ margin: "2rem" }}>
+              <label
+                style={{ margin: "5px", fontWeight: "bold" }}
+                className="font-bold"
+              >
+                {category.label}
+              </label>
               {category.nominees.map((nominee) => {
                 return (
-                  <div key={nominee}>
+                  <div style={{ margin: "10px" }} key={nominee}>
                     <span>{nominee.label}</span>{" "}
                     <input
                       type="radio"
@@ -376,7 +381,10 @@ export default function Home() {
         })}
 
         <div className="flex items-center justify-center">
-          <button className="border-b bg-gray-200 text-center p-2 rounded-xl m-4">
+          <button
+            style={{ margin: "20px", marginLeft: "3rem" }}
+            className="border-b bg-gray-200 text-center p-2 rounded-xl m-4"
+          >
             ENVIAR
           </button>
         </div>

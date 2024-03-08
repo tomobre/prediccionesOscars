@@ -42,9 +42,10 @@ export default async function Resultados() {
           return (
             <div
               key={user.NombreParticipante}
-              className="flex items-center justify-center m-5"
+              style={{ margin: "10px" }}
+              //className="flex items-center justify-center m-5"
             >
-              <span>{user.NombreParticipante}</span>
+              <span style={{ margin: "10px" }}>{user.NombreParticipante}</span>
               <span className="m-4">{user.count}</span>
             </div>
           );
