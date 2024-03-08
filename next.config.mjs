@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 import TerserPlugin from "terser-webpack-plugin";
 const nextConfig = {
+  output: "export",
   webpack(config) {
     // Remove TerserPlugin if not needed for minification
     if (!config.optimization) {
