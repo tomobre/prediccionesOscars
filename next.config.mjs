@@ -10,6 +10,7 @@ const nextConfig = {
     DB_USER: process.env.DB_USER,
     DB_PASSWORD: process.env.DB_PASSWORD,
     DB_DB: process.env.DB_DB,
+    BACKEND: process.env.BACKEND,
   },
   output: "export",
 };
