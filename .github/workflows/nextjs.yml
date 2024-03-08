@@ -12,6 +12,16 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  NEXT_PUBLIC_SERVICE_ID: service_6afluuk
+  NEXT_PUBLIC_TEMPLATE_ID: template_71ynrxr
+  NEXT_PUBLIC_PUBLIC_KEY: 9GfjGWY52HYEqx6pL
+  URL:http://localhost: 3000
+  DB_HOST: sql11.freesqldatabase.com"
+  DB_USER: sql11689448
+  DB_PASSWORD: M1y4js9j4e
+  DB_DB: sql11689448
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
