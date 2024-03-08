@@ -1,7 +1,18 @@
+import db from "../config/db";
+
+export async function GET() {}
+
 async function getData() {
-  const res = await fetch(process.env.URL + "/api/results", {
-    next: { revalidate: 60 },
+  const results = await new Promise((resolve, reject) => {
+    db.query(`SELECT * from OscarPredicciones;`, (err, results) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(results);
+      }
+    });
   });
+  const res = Response.json(results);
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
