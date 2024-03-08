@@ -13,7 +13,7 @@ on:
   workflow_dispatch:
 
 env:
-  NEXT_PUBLIC_SERVICE_ID: service_6afluuk
+  NEXT_PUBLIC_SERVICE_ID: ${{ NEXT_PUBLIC_SERVICE_ID }}
   NEXT_PUBLIC_TEMPLATE_ID: template_71ynrxr
   NEXT_PUBLIC_PUBLIC_KEY: 9GfjGWY52HYEqx6pL
   URL:http://localhost: 3000
