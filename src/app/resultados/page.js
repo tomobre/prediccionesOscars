@@ -24,10 +24,6 @@ async function getData() {
 
 export default async function Resultados() {
   let users = await getData();
-  setTimeout(async () => {
-    users = await getData();
-    console.log(users);
-  }, 10000);
 
   const masterUser = users.find(
     (user) => user?.NombreParticipante === "Master"
