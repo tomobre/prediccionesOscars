@@ -35,40 +35,41 @@ export default function Home() {
     e.preventDefault();
     let response;
     try {
-      response = await fetch(process.env.BACKEND, {
+      /*       response = await fetch(process.env.BACKEND, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ guesses, username }),
       });
+ */
+      /*   if (response.ok) { */
+      emailjs
+        .sendForm(
+          process.env.NEXT_PUBLIC_SERVICE_ID,
+          process.env.NEXT_PUBLIC_TEMPLATE_ID,
+          form.current,
+          process.env.NEXT_PUBLIC_PUBLIC_KEY
+        )
+        .then(
+          () => {
+            window.alert("listo!");
+            // setSuccess(true);
+            // form.current.reset();
+          },
+          () => {
+            // setError(true);
+          }
+        );
 
-      if (response.ok) {
-        emailjs
-          .sendForm(
-            process.env.NEXT_PUBLIC_SERVICE_ID,
-            process.env.NEXT_PUBLIC_TEMPLATE_ID,
-            form.current,
-            process.env.NEXT_PUBLIC_PUBLIC_KEY
-          )
-          .then(
-            () => {
-              // setSuccess(true);
-              // form.current.reset();
-            },
-            () => {
-              // setError(true);
-            }
-          );
-        window.alert("listo!");
-      } else {
+      /*   } else {
         window.alert("salio algo mal!");
-      }
+      } */
     } catch (err) {
       console.log(err);
     }
 
-    console.log(await response.json());
+    //console.log(await response.json());
     console.log("send");
   };
 
