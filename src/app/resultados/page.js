@@ -1,14 +1,18 @@
+"use client";
 import db from "../config/db";
 
 async function getData() {
   const results = await new Promise((resolve, reject) => {
-    db.query(`SELECT * from OscarPredicciones;`, (err, results) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(results);
+    db.query(
+      `SELECT SQL_NO_CACHE * from OscarPredicciones;`,
+      (err, results) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(results);
+        }
       }
-    });
+    );
   });
   const res = Response.json(results);
 
