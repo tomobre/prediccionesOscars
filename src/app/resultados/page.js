@@ -1,4 +1,3 @@
-"use client";
 import db from "../config/db";
 
 async function getData() {
